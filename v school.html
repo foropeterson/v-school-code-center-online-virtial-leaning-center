@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V SCHOOL CODE CENTER</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #444;
+        }
+        header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 1em 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 25px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2em;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+        .hero {
+            background: #007bff;
+            color: white;
+            padding: 4em 2em;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        .hero h1 {
+            margin: 0 0 0.5em;
+            font-size: 2.5em;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+        .hero a {
+            display: inline-block;
+            background-color: #0056b3;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 1em;
+        }
+        .hero a:hover {
+            background-color: #004494;
+            transform: translateY(-3px);
+        }
+        .section {
+            margin-bottom: 2em;
+        }
+        .section h2 {
+            font-size: 2em;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.5em;
+        }
+        .section p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        .card {
+            background: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5em;
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        .card a {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 10px;
+        }
+        .card a:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .advice-button {
+            display: inline-block;
+            background-color: #ff6600;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .advice-button:hover {
+            background-color: #cc5200;
+            transform: translateY(-2px);
+        }
+        .roadmap-content {
+            display: none; /* Hide roadmap content by default */
+            background: #fff;
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 1em;
+        }
+        .roadmap-content p {
+            margin: 0;
+            font-size: 1em;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+    <script>
+        function toggleRoadmap() {
+            var content = document.getElementById('roadmap');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'courses' %}">Courses</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Welcome to Our LMS</h1>
+            <p>Your journey to learning starts here. Explore courses, track your progress, and enhance your skills.</p>
+            <a href="{% url 'courses' %}">Explore Courses</a>
+        </section>
+
+        <section class="section">
+            <h2>Featured Courses</h2>
+            <div class="card">
+                <h3>Introduction to Python</h3>
+                <p>Learn the basics of Python programming from scratch with hands-on exercises and projects.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Advanced JavaScript</h3>
+                <p>Deep dive into advanced JavaScript concepts and modern development practices.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Our Mission</h2>
+            <p>We aim to provide high-quality educational resources and support to learners around the world. Our platform is designed to make learning accessible, engaging, and effective.</p>
+        </section>
+
+        <!-- Button to toggle roadmap content -->
+        <section class="section">
+            <h2>View Roadmap</h2>
+            <button onclick="toggleRoadmap()" class="advice-button">View Roadmap</button>
+            <div id="roadmap" class="roadmap-content">
+                <h2>Roadmap to Becoming a Full-Stack Developer</h2>
+                <p>To become a full-stack developer, you'll need proficiency in a range of languages and technologies that cover both front-end and back-end development, as well as knowledge of databases and other tools.</p>
+            
+                <h3>1. Front-End Development</h3>
+                <ul>
+                    <li><strong>HTML:</strong> For structuring web content.</li>
+                    <li><strong>CSS:</strong> For styling and layout of web pages.</li>
+                    <li><strong>JavaScript:</strong> For adding interactivity and dynamic features to web pages.</li>
+                    <li><strong>JavaScript Frameworks/Libraries (optional but beneficial):</strong>
+                        <ul>
+                            <li>React: Popular for building user interfaces.</li>
+                            <li>Angular: A framework for building web applications.</li>
+                            <li>Vue.js: A progressive framework for building UIs.</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+                <h3>2. Back-End Development</h3>
+                <ul>
+                    <li><strong>Programming Languages:</strong>
+                        <ul>
+                            <li>JavaScript (Node.js): For server-side scripting.</li>
+                            <li>Python: With frameworks like Django or Flask.</li>
+                            <li>Java: With frameworks like Spring Boot.</li>
+                            <li>Ruby: With the Ruby on Rails framework.</li>
+                            <li>PHP: For server-side scripting.</li>
+                            <li>C#: With ASP.NET for web applications.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Server-Side Frameworks:</strong>
+                        <ul>
+                            <li>Express.js (Node.js framework)</li>
+                            <li>Django (Python framework)</li>
+                            <li>Flask (Python micro-framework)</li>
+                            <li>Spring Boot (Java framework)</li>
+                            <li>Ruby on Rails (Ruby framework)</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+                <h3>3. Databases</h3>
+                <ul>
+                    <li><strong>SQL Databases:</strong>
+                        <ul>
+                            <li>MySQL: Popular relational database.</li>
+                            <li>PostgreSQL: Advanced relational database.</li>
+                            <li>SQLite: Lightweight relational database.</li>
+                        </ul>
+                    </li>
+                    <li><strong>NoSQL Databases:</strong>
+                        <ul>
+                            <li>MongoDB: Document-oriented database.</li>
+                            <li>Redis: In-memory data structure store, often used for caching.</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+                <h3>4. DevOps & Other Tools</h3>
+                <ul>
+                    <li><strong>Version Control:</strong>
+                        <ul>
+                            <li>Git: For version control and collaboration.</li>
+                            <li>GitHub/GitLab/Bitbucket: Platforms for hosting repositories.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Package Managers:</strong>
+                        <ul>
+                            <li>npm/yarn: For managing JavaScript libraries.</li>
+                            <li>pip: For Python packages.</li>
+                            <li>Bundler: For Ruby gems.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Build Tools:</strong>
+                        <ul>
+                            <li>Webpack: For bundling JavaScript modules.</li>
+                            <li>Gulp: For task automation.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Deployment & Cloud Services:</strong>
+                        <ul>
+                            <li>Docker: For containerization.</li>
+                            <li>CI/CD Tools: Jenkins, Travis CI, GitHub Actions for continuous integration and deployment.</li>
+                            <li>Cloud Platforms: AWS, Azure, Google Cloud Platform for hosting and scaling applications.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Testing:</strong>
+                        <ul>
+                            <li>Jest: For JavaScript testing.</li>
+                            <li>JUnit: For Java testing.</li>
+                            <li>PyTest: For Python testing.</li>
+                        </ul>
+                    </li>
+                    <li><strong>API Development:</strong>
+                        <ul>
+                            <li>RESTful APIs: For creating and consuming APIs.</li>
+                            <li>GraphQL: For a more flexible query language for APIs.</li>
+                        </ul>
+                    </li>
+                    <li><strong>General Skills:</strong>
+                        <ul>
+                            <li>Problem-Solving: Ability to debug and troubleshoot issues.</li>
+                            <li>Collaboration: Working effectively with teams and using collaboration tools.</li>
+                            <li>UX/UI Design Principles: Understanding the basics of user experience and user interface design.</li>
+                        </ul>
+                    </li>
+                </ul>
+            
+                <p>Being a full-stack developer means being comfortable working on all layers of an application—from the user interface to the database, and understanding how to integrate these components effectively.</p>
+            </div>
+             <!-- Book the Tutor Button -->
+    <section class="section">
+        <h2>Need Help? Book a Tutor!</h2>
+        <a href="tel:+254110173956" class="advice-button">Call Now</a>
+        <a href="https://wa.me/254110173956" class="advice-button">Chat on WhatsApp</a>
+    </section>
+</div>
+    <footer>
+        <p>&copy; 2024 Online Learning Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
